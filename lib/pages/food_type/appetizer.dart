@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:menu/appetizer_state.dart';
+import 'package:menu/food_state/appetizer_state.dart';
 import 'package:provider/provider.dart';
 
 class Appetizer extends StatefulWidget {
