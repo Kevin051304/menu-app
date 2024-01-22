@@ -31,7 +31,7 @@ class _RootPageState extends State<RootPage> {
   ];
 
   //list of the pages title
-  List<String> titleList = ['Home', 'Favorite', 'Cart', 'Profile'];
+  List<String> titleList = ['Home', 'Favorites', 'Cart', 'Profile'];
 
   @override
   Widget build(BuildContext context) {

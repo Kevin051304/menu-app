@@ -1,11 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:menu/food_state/item_state.dart';
 import 'package:menu/models/food_items/vegetable_items.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class VegetableState extends ChangeNotifier {
+class VegetableState extends ChangeNotifier implements ItemState {
+  @override
   List<VegetableItems> items = [];
+  @override
   List<int> quantities = [];
+  @override
   List<bool> isFavorited = [];
 
   Future<void> loadPersistedState() async {
@@ -50,6 +54,7 @@ class VegetableState extends ChangeNotifier {
     loadPersistedState();
   }
 
+  @override
   void toggleFavorite(int index) {
     isFavorited[index] = !isFavorited[index];
     persistState();
@@ -59,12 +64,14 @@ class VegetableState extends ChangeNotifier {
     });
   }
 
+  @override
   void incrementQuantity(int index) {
     quantities[index] = quantities[index] + 1;
     persistState();
     notifyListeners();
   }
 
+  @override
   void decrementQuantity(int index) {
     quantities[index] = quantities[index] > 0 ? quantities[index] - 1 : 0;
     persistState();
